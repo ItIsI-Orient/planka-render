@@ -10,8 +10,7 @@ services:
     env: docker
     repo: https://github.com/ItIsI-Orient/planka-render
     envVars:
-      - key: BASE_URL
-        value: $RENDER_EXTERNAL_URL
+      # BASE_URL has been removed
       - key: DATABASE_URL
         fromDatabase:
           name: planka-db

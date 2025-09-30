@@ -10,7 +10,6 @@ services:
     env: docker
     repo: https://github.com/ItIsI-Orient/planka-render
     envVars:
-      # Use the built-in Render environment variable for the URL
       - key: BASE_URL
         value: $RENDER_EXTERNAL_URL
       - key: DATABASE_URL
@@ -18,4 +17,6 @@ services:
           name: planka-db
           property: connectionString
       - key: SECRET_KEY
-        generateValue: true # Render will automatically generate a secure secret key
+        generateValue: true
+      - key: TRUST_PROXY
+        value: true

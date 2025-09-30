@@ -8,14 +8,11 @@ services:
     name: planka
     plan: free
     env: docker
-    # ❗️ IMPORTANT: Make sure this line points to your forked repository
     repo: https://github.com/ItIsI-Orient/planka-render
     envVars:
+      # Use the built-in Render environment variable for the URL
       - key: BASE_URL
-        fromService:
-          type: web
-          name: planka
-          property: url
+        value: $RENDER_EXTERNAL_URL
       - key: DATABASE_URL
         fromDatabase:
           name: planka-db

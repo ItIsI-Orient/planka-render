@@ -20,3 +20,7 @@ services:
         generateValue: true
       - key: TRUST_PROXY
         value: true
+      - key: DEFAULT_ADMIN_EMAIL
+        value: 'filip.kruzik@webkomplet.cz'
+      - key: DEFAULT_ADMIN_PASSWORD
+        sync: false

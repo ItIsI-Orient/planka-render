@@ -1,0 +1,27 @@
+services:
+  # The PostgreSQL Database for Planka
+  - type: pserv
+    name: planka-db
+    repo: https://github.com/render-examples/postgres-hello-world # Dummy repo, required by Render but not used
+    postgres:
+      version: 14
+
+  # The Planka Web Application
+  - type: web
+    name: planka
+    env: docker
+    repo: https://github.com/ItIsI-Orient/planka-render # ❗️ IMPORTANT: Change this to your repo URL
+    plan: free # Use the 'free' tier
+    envVars:
+      - key: BASE_URL
+        fromService:
+          type: web
+          name: planka
+          property: url
+      - key: DATABASE_URL
+        fromService:
+          type: pserv
+          name: planka-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true # Render will automatically generate a secure secret key

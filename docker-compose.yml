@@ -14,17 +14,12 @@ services:
     ports:
       - 3000:1337
     environment:
-      - BASE_URL=http://localhost:3000
-      - DATABASE_URL=postgresql://postgres@postgres/planka
-
       # Optionally store the database password in secrets:
       # - DATABASE_URL=postgresql://postgres:$${DATABASE_PASSWORD}@postgres/planka
       # - DATABASE_PASSWORD__FILE=/run/secrets/database_password
       # And add the following to the service:
       # secrets:
       #   - database_password
-
-      - SECRET_KEY=notsecretkey
       # Optionally store in secrets - then SECRET_KEY should not be set
       # - SECRET_KEY__FILE=/run/secrets/secret_key
 
@@ -49,7 +44,7 @@ services:
       # - DEFAULT_ADMIN_EMAIL=demo@demo.demo
       # - DEFAULT_ADMIN_PASSWORD=demo
       # Optionally store in secrets - then DEFAULT_ADMIN_PASSWORD should not be set
-      # - DEFAULT_ADMIN_PASSWORD__FILE=/run/secrets/default_admin_password
+      - DEFAULT_ADMIN_PASSWORD__FILE=/run/secrets/default_admin_password
       # - DEFAULT_ADMIN_NAME=Demo Demo
       # - DEFAULT_ADMIN_USERNAME=demo
 
